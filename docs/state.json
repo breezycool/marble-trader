@@ -1,0 +1,9 @@
+{
+	routing: {
+		changeId: Integer,
+		path: String,
+		state: Object,
+		replace: Boolean
+	}
+	initial: List
+}

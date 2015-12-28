@@ -10,6 +10,7 @@ import { createHistory } from 'history'
 import { reducer } from './redux/reducer'
 import DevTools from './redux/devtools'
 import App from './components/App'
+import Login from './components/Login'
 
 import Register from'./components/Register'
 
