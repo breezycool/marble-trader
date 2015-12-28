@@ -22,8 +22,8 @@ const configureStore = (initialState) => {
   return store;
 }
 
-const store = configureStore()
-const history = createHistory()
+export const store = configureStore()
+export const history = createHistory()
 
 syncReduxAndRouter(history, store)
 
@@ -53,9 +53,17 @@ export class DevApp extends React.Component {
 	}
 }
 
+export class FullApplication extends React.Component {
+	render() {
+		return(
+			<Provider store={store}>
+				<DevApp/>
+			</Provider>
+		)
+	}
+}
+
 ReactDOM.render(
-	<Provider store={store}>
-		<DevApp/>
-	</Provider>,
+	<FullApplication />,
 	document.querySelector("#app")
 );
