@@ -8,7 +8,7 @@ export const toggleLogin = (id) => {
 	}
 }
 
-export const saveUserData = (id, name, password, email) => {
+export const saveUserdata = (id, name, password, email) => {
 	return {
 		type: SAVE_USERDATA,
 		id: id,
