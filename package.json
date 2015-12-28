@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-babel",
+  "name": "marbletrader",
   "version": "0.0.2",
-  "description": "React Webpack Babel Starter Kit",
+  "description": "MarbleTrader",
   "main": "''",
   "scripts": {
     "build": "webpack --progress --profile --colors",
@@ -20,12 +20,12 @@
     "Starter",
     "template"
   ],
-  "author": "Ali Al Dallal",
+  "author": "MarbleTrader Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alicoding/react-webpack-babel/issues"
+    "url": "https://github.com/breezykermo/marbletrader/issues"
   },
-  "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
+  "homepage": "https://github.com/breezykermo/marbletrader#readme",
   "dependencies": {
     "bootstrap": "3.3.5",
     "history": "^1.17.0",
