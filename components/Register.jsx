@@ -7,10 +7,13 @@ var fieldValues = {
 }
 
 export default class Register extends React.Component {
+  static propTypes = {
+    onClickHandler: React.propTypes.func.isRequired
+  }
+
   render() {   
     
     return (
-
       <div>
         <div>
           <label>Name: </label>
@@ -25,7 +28,7 @@ export default class Register extends React.Component {
           <input type="email" ref="email" defaultValue={fieldValues.email} />
         </div>
         <div>
-          <button className="btn btn-warning btn-lg glyphicon glyphicon-user" onClick={this.onClick}> Register!</button>
+          <button className="btn btn-warning btn-lg glyphicon glyphicon-user" onClick={this.props.onClickHandler}> Register!</button>
         </div>
       </div>
     )
