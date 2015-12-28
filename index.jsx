@@ -1,19 +1,52 @@
 require("./node_modules/bootstrap/dist/css/bootstrap.min.css")
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route } from 'react-router'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import { syncReduxAndRouter } from 'redux-simple-router'
+import { createHistory } from 'history'
 
-/* REDUX */
-import {Provider} from 'react-redux'
-import {configureStore} from './redux/store'
+import { reducer } from './redux/reducer'
 import DevTools from './redux/devtools'
+import About from './components/About'
+import App from './components/App'
+import Login from './components/Login'
 
-import Main from './components/Main'
+const createFinalStore = compose(
+	DevTools.instrument()
+)(createStore)
+
+const configureStore = (initialState) => {
+  const store = createFinalStore(reducer);
+  return store;
+}
+
+const store = configureStore()
+const history = createHistory()
+
+syncReduxAndRouter(history, store)
+
+class Layout extends React.Component {
+  render() {
+    return (
+      <div>
+				<Router history={history}>
+					<Route path="/" component={App}>
+						<Route path="about" component={About}></Route>
+						<Route path="login" component={Login}></Route>
+					</Route>
+				</Router>
+      </div>
+    );
+  }
+}
  
-export class App extends React.Component {
+export class DevApp extends React.Component {
 	render() {
 		return (
 			<div>
-				<Main />
+				<Layout />
 				<DevTools />
 			</div>
 		);
@@ -21,8 +54,8 @@ export class App extends React.Component {
 }
 
 ReactDOM.render(
-	<Provider store={configureStore()}>
-		<App/>
+	<Provider store={store}>
+		<DevApp/>
 	</Provider>,
 	document.querySelector("#app")
 );
