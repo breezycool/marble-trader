@@ -11,7 +11,7 @@ import { reducer } from './redux/reducer'
 import DevTools from './redux/devtools'
 import App from './components/App'
 
-import Register from './components/Register'
+import RegisterView from './components/RegisterView'
 import LoginForm from './components/LoginForm'
 import About from './components/About'
 
@@ -35,7 +35,7 @@ class Layout extends React.Component {
       <div>
 				<Router history={history}>
 					<Route path="/" component={App}>
-						<Route path="register" component={Register}></Route>
+						<Route path="register" component={RegisterView}></Route>
 						<Route path="about" component={About}></Route>
 						<Route path="login" component={LoginForm}></Route>
 					</Route>
