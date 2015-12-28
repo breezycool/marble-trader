@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginComponent from './LoginComponent'
+import Login from './Login'
 
 
 export default class App extends React.Component {
