@@ -11,6 +11,8 @@ import { reducer } from './redux/reducer'
 import DevTools from './redux/devtools'
 import App from './components/App'
 
+import Register from'./components/Register'
+
 const createFinalStore = compose(
 	DevTools.instrument()
 )(createStore)
@@ -31,6 +33,7 @@ class Layout extends React.Component {
       <div>
 				<Router history={history}>
 					<Route path="/" component={App}>
+						<Route path="register" component={Register}></Route>
 						<Route path="about" ></Route>
 						<Route path="login" ></Route>
 					</Route>

@@ -7,7 +7,7 @@ export default class App extends React.Component {
     return (
       <div>
         Welcome to MarbleTrader! <br />
-          <LoginComponent/>
+          <Login/>
         {this.props.children}
       </div>
     )
