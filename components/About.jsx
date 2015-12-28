@@ -1,9 +1,12 @@
 import React from 'react';
 
 export default class About extends React.Component {
-  render() {
+
+  render() {      
     return (
-      <div>About</div>
+      <div>
+      	This is marbleTrader.
+      </div>
     )
   }
 }

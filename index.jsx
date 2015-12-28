@@ -9,9 +9,11 @@ import { createHistory } from 'history'
 
 import { reducer } from './redux/reducer'
 import DevTools from './redux/devtools'
-import About from './components/About'
 import App from './components/App'
-import Login from './components/Login'
+
+import RegisterView from './components/RegisterView'
+import LoginForm from './components/LoginForm'
+import About from './components/About'
 
 const createFinalStore = compose(
 	DevTools.instrument()
@@ -22,8 +24,8 @@ const configureStore = (initialState) => {
   return store;
 }
 
-const store = configureStore()
-const history = createHistory()
+export const store = configureStore()
+export const history = createHistory()
 
 syncReduxAndRouter(history, store)
 
@@ -33,8 +35,9 @@ class Layout extends React.Component {
       <div>
 				<Router history={history}>
 					<Route path="/" component={App}>
+						<Route path="register" component={RegisterView}></Route>
 						<Route path="about" component={About}></Route>
-						<Route path="login" component={Login}></Route>
+						<Route path="login" component={LoginForm}></Route>
 					</Route>
 				</Router>
       </div>
@@ -53,9 +56,17 @@ export class DevApp extends React.Component {
 	}
 }
 
+export class FullApplication extends React.Component {
+	render() {
+		return(
+			<Provider store={store}>
+				<DevApp/>
+			</Provider>
+		)
+	}
+}
+
 ReactDOM.render(
-	<Provider store={store}>
-		<DevApp/>
-	</Provider>,
+	<FullApplication />,
 	document.querySelector("#app")
 );

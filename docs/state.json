@@ -1,0 +1,16 @@
+{
+	routing: {
+		changeId: Integer,
+		path: String,
+		state: Object,
+		replace: Boolean
+	}
+	initial: List
+	User: {
+		id: Integer
+		name: String
+		password: String
+		email: String
+		isLoggedIn: Boolean
+	}
+}
