@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
+import Scene from './3D-Scene/Scene.js'
 
 export default class App extends React.Component {
   render() {
@@ -10,6 +11,7 @@ export default class App extends React.Component {
       	<Link to='login'>Link</Link>
 
 				{this.props.children}
+        <Scene />
       </div>
     )
   }
