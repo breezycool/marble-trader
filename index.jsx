@@ -10,9 +10,10 @@ import { createHistory } from 'history'
 import { reducer } from './redux/reducer'
 import DevTools from './redux/devtools'
 import App from './components/App'
-import Login from './components/Login'
 
-import Register from'./components/Register'
+import Register from './components/Register'
+import LoginForm from './components/LoginForm'
+import About from './components/About'
 
 const createFinalStore = compose(
 	DevTools.instrument()
@@ -35,8 +36,8 @@ class Layout extends React.Component {
 				<Router history={history}>
 					<Route path="/" component={App}>
 						<Route path="register" component={Register}></Route>
-						<Route path="about" ></Route>
-						<Route path="login" ></Route>
+						<Route path="about" component={About}></Route>
+						<Route path="login" component={LoginForm}></Route>
 					</Route>
 				</Router>
       </div>
