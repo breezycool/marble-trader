@@ -9,7 +9,7 @@ const Register = React.createClass({
  getInitialState() {
     return {id: 1, name: '', password: '', email: ''};
   },
-  textChange(e) {
+  nameChange(e) {
     this.setState({name: e.target.value});
   },
   pwChange(e) {
