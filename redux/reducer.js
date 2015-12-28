@@ -1,10 +1,6 @@
 import { combineReducers } from 'redux'
-import {paragraphs} from './paragraphsReducer'
-import {hints} from './hintsReducer'
-
-//new lone
+import initial from './initialReducer'
 
 export const reducer = combineReducers({
-	hints,
-	paragraphs
-})	
+	initial
+})
