@@ -18,20 +18,4 @@ describe('user reducer', () => {
 		expect(state).to.contain({loggedIn: false})
 	})
 
-	it('handles TOGGLE_LOGIN', () => {
-		store.dispatch(toggleLogin())
-		let state = store.getState()
-		expect(state).to.contain({loggedIn: true})
-	})
-
-	it('handles SAVE_USERDATA', () => {
-		store.dispatch(saveUserdata(1, 'lachie', 'password', 'lachlankermode@live.com'))
-		let state = store.getState()
-		expect(state).to.contain({
-			id: 1,
-			name: 'lachie',
-			password: 'password',
-			email: 'lachlankermode@live.com'
-		})
-	})
 })
