@@ -34,7 +34,7 @@ export const LoginForm = React.createClass ({
         </div>
           {this.state.loginRejected?
         <div style={{color: 'red'}}>
-          Sorry, but that name is taken. 
+          Sorry, username or password incorrect. 
         </div>
           :
         <div style={{color: 'red'}}>

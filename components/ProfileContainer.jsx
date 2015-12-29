@@ -1,13 +1,11 @@
 import React from 'react';
-import { pushPath } from 'redux-simple-router';
 import {connect} from 'react-redux';
-import {toggleLogin} from '../redux/user/actions';
+import {logout} from 
 
 export const Profile = React.createClass({
 
   handleSubmit(e) {
-    this.props.dispatch(pushPath('/'));
-    this.props.dispatch(toggleLogin());
+    this.props.dispatch(logout());
   },
   render() {
     return (
