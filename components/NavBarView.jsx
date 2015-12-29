@@ -6,6 +6,7 @@ const NavBarView = () => {
 	return (
 		<div>
 			<NavBarContainer />
+			<br/>
 		</div>
 	)
 };

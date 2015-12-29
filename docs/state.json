@@ -11,5 +11,6 @@
 		password: String
 		email: String
 		loggedIn: Boolean
+		registerRejected: Boolean
 	}
 }
