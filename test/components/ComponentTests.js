@@ -2,8 +2,7 @@ import {expect} from 'chai'
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import {Register} from '../../components/RegisterContainer'
-import ReactDOM
-  from 'react-dom';
+import ReactDOM from 'react-dom';
 
 describe('NavBar', () => {
 	it('has no tests', () => {
