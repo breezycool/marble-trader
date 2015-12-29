@@ -1,6 +1,6 @@
 const initialState = {loggedIn: false}
 
-import {TOGGLE_LOGIN, SAVE_USERDATA} from './actions'
+import {TOGGLE_LOGIN, SAVE_USERDATA, VALIDATE_LOGIN} from './actions'
 
 const user = (state=initialState, action) => {
 	switch(action.type) {
@@ -16,8 +16,17 @@ const user = (state=initialState, action) => {
 			password: action.password,
 			email: action.email
 		})
-		default:
-			return state
+	case VALIDATE_LOGIN:
+		let loginValid = false
+		// TODO: implement Parse authentication
+		if (action.password == 'password') {
+			loginValid = true
+		}
+		return Object.assign({}, state, {
+			loggedIn: loginValid
+		})
+	default:
+		return state
 	}
 }
 
