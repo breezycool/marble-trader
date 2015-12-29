@@ -8,61 +8,61 @@ export const Register = React.createClass({
 	//   onClickHandler: React.propTypes.func.isRequired
 	// }
  getInitialState() {
-    return {id: 1, name: '', password: '', password2:'', email: '', registerRejected: false, errorValidate:""};
-  },
-  nameChange(e) {
-    this.setState({name: e.target.value});
-  },
-  pwChange(e) {
-    this.setState({password: e.target.value});
-  },
-  pw2Change(e) {
-    this.setState({password2: e.target.value});
-  },
-  emailChange(e) {
-    this.setState({email: e.target.value});
-  },
-  handleSubmit(e) {
-  	const id = this.state.id
-    const name = this.state.name.trim();
-    const pw = this.state.password.trim();
-    const pw2 = this.state.password2.trim();
-    const email = this.state.email.trim();
+		return {id: 1, name: '', password: '', password2:'', email: '', registerRejected: false, errorValidate:""};
+	},
+	nameChange(e) {
+		this.setState({name: e.target.value});
+	},
+	pwChange(e) {
+		this.setState({password: e.target.value});
+	},
+	pw2Change(e) {
+		this.setState({password2: e.target.value});
+	},
+	emailChange(e) {
+		this.setState({email: e.target.value});
+	},
+	handleSubmit(e) {
+		const id = this.state.id
+		const name = this.state.name.trim();
+		const pw = this.state.password.trim();
+		const pw2 = this.state.password2.trim();
+		const email = this.state.email.trim();
 
-    function validateEmail(email) 
-	{
-		var re = /\S+@\S+\.\S+/;
-		return re.test(email);
-	};
+		function validateEmail(email) 
+		{
+			var re = /\S+@\S+\.\S+/;
+			return re.test(email);
+		};
 
-    if(name.length<5 )
-    {	
-    	this.setState({errorValidate: "Name must be 5 or more characters."});
-    	return;
-    };
+		if(name.length<5 )
+		{	
+			this.setState({errorValidate: "Name must be 5 or more characters."});
+			return;
+		};
 
-    if(pw.length<5)
-    {
-    	this.setState({errorValidate: "Password must be 5 or more characters."});
-    	return;
-    }
+		if(pw.length<5)
+		{
+			this.setState({errorValidate: "Password must be 5 or more characters."});
+			return;
+		}
 
-    if(pw !== pw2)
-    {
-    	this.setState({errorValidate: "Passwords must match."});
-    	return;
-    }
+		if(pw !== pw2)
+		{
+			this.setState({errorValidate: "Passwords must match."});
+			return;
+		}
 
-    if(!validateEmail(email))
-    {
-    	this.setState({errorValidate: "Email is not valid."});
-    	return;   	
-    }
+		if(!validateEmail(email))
+		{
+			this.setState({errorValidate: "Email is not valid."});
+			return;   	
+		}
 
-    this.props.dispatch(registerNewUser(id, name, pw, email));
-    this.setState({registerRejected: this.props.registerRejected});
+		this.props.dispatch(registerNewUser(id, name, pw, email));
+		this.setState({registerRejected: this.props.registerRejected});
 
-  },
+	},
 	render() {      
 		return (
 			<div>
