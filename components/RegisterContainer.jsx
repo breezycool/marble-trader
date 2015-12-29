@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {toggleLogin, saveUserdata} from '../redux/user/actions';
 import { pushPath } from 'redux-simple-router';
 
-const Register = React.createClass({
+export const Register = React.createClass({
 	// static propTypes = {
 	//   onClickHandler: React.propTypes.func.isRequired
 	// }

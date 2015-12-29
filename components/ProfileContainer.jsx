@@ -3,7 +3,7 @@ import { pushPath } from 'redux-simple-router';
 import {connect} from 'react-redux';
 import {toggleLogin} from '../redux/user/actions';
 
-const Profile = React.createClass({
+export const Profile = React.createClass({
 
   handleSubmit(e) {
     this.props.dispatch(pushPath('/'));
