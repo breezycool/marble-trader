@@ -4,7 +4,7 @@ import {validateLogin} from '../redux/user/actions';
 import { pushPath } from 'redux-simple-router';
 
 
-export const LoginForm = React.Component ({
+export const LoginForm = React.createClass ({
 
  getInitialState() {
     return {name: '', password: ''};
@@ -14,7 +14,7 @@ export const LoginForm = React.Component ({
     const pw = this.state.password.trim();
     
     this.props.dispatch(validateLogin(name, pw));
-    this.props.dispatch(pushPath('/profile'));
+
   },
   render() {      
     return (

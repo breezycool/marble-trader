@@ -12,7 +12,7 @@ import DevTools from './redux/devtools'
 import App from './components/App'
 
 import RegisterView from './components/RegisterView'
-import LoginForm from './components/LoginView'
+import LoginView from './components/LoginView'
 import About from './components/About'
 import ProfileView from './components/ProfileView'
 

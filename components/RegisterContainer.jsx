@@ -32,8 +32,9 @@ export const Register = React.createClass({
 		};
 
     if(name.length<5 || pw.length<5 || !validateEmail(email))
-    {
+    {	
     	this.setState({registerRejected: true});
+    	return;
     };
 
     this.props.dispatch(registerNewUser(id, name, pw, email));
@@ -59,7 +60,7 @@ export const Register = React.createClass({
 					<button className="btn btn-warning btn-lg glyphicon glyphicon-user"  onClick={this.handleSubmit}
 					> Register!</button>
 				</div>
-				{this.props.registerRejected?
+				{this.state.registerRejected?
 				<div>
 					Sorry, but that name is taken. Or maybe you didn't realise that name and password must be 5 or more letters. Or maybe your email isn't valid.
 				</div>
