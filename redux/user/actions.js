@@ -1,18 +1,20 @@
-export const TOGGLE_LOGIN = 'TOGGLE_LOGIN'
-export const SAVE_USERDATA = 'SAVE_USERDATA'
+export const REGISTER_NEW_USER = 'REGISTER_NEW_USER'
+export const VALIDATE_LOGIN = 'VALIDATE_LOGIN'
 
-export const toggleLogin = () => {
+export const registerNewUser = (id, user, password, email) => {
 	return {
-		type: TOGGLE_LOGIN,
+		type: REGISTER_NEW_USER,
+		id: id,
+		user: user,
+		password: password,
+		email: email
 	}
 }
 
-export const saveUserdata = (id, name, password, email) => {
+export const validateLogin = (username, password) => {
 	return {
-		type: SAVE_USERDATA,
-		id: id,
-		name: name,
-		password: password,
-		email: email
+		type: VALIDATE_LOGIN,
+		username: username,
+		password: password
 	}
 }
