@@ -1,15 +1,11 @@
 const initialState = {loggedIn: false}
 
-import {TOGGLE_LOGIN, SAVE_USERDATA, VALIDATE_LOGIN} from './actions'
+import {REGISTER_NEW_USER, VALIDATE_LOGIN} from './actions'
 
 const user = (state=initialState, action) => {
 	switch(action.type) {
 
-	case TOGGLE_LOGIN:
-		return Object.assign({}, state, {
-			loggedIn: !state.loggedIn
-		})
-	case SAVE_USERDATA:
+	case REGISTER_NEW_USER:
 		return Object.assign({}, state, {
 			id: action.id,
 			name: action.name,

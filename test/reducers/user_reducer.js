@@ -1,7 +1,7 @@
 import {expect} from 'chai'
 import {createStore} from 'redux'
 import user from '../../redux/user/reducer'
-import {toggleLogin, saveUserdata, validateLogin} from '../../redux/user/actions'
+import {toggleLogin, registerNewUser, validateLogin} from '../../redux/user/actions'
 
 
 describe('user reducer', () => {
@@ -18,14 +18,8 @@ describe('user reducer', () => {
 		expect(state).to.contain({loggedIn: false})
 	})
 
-	it('handles TOGGLE_LOGIN', () => {
-		store.dispatch(toggleLogin())
-		let state = store.getState()
-		expect(state).to.contain({loggedIn: true})
-	})
-
 	it('handles SAVE_USERDATA', () => {
-		store.dispatch(saveUserdata(1, 'lachie', 'password', 'lachlankermode@live.com'))
+		store.dispatch(registerNewUser(1, 'lachie', 'password', 'lachlankermode@live.com'))
 		let state = store.getState()
 		expect(state).to.contain({
 			id: 1,
