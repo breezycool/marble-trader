@@ -12,7 +12,7 @@ export default class App extends React.Component {
 		return (
 			<div>
 				Welcome to MarbleTrader! <br />
-        <NavBar/>
+        <NavBarView/>
         {this.props.children}
         <Scene />
 			</div>

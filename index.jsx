@@ -14,6 +14,7 @@ import App from './components/App'
 import RegisterView from './components/RegisterView'
 import LoginForm from './components/LoginForm'
 import About from './components/About'
+import ProfileView from './components/ProfileView'
 
 const createFinalStore = compose(
 	DevTools.instrument()
@@ -38,6 +39,7 @@ class Layout extends React.Component {
 						<Route path="register" component={RegisterView}></Route>
 						<Route path="about" component={About}></Route>
 						<Route path="login" component={LoginForm}></Route>
+						<Route path="profile" component={ProfileView}></Route>
 					</Route>
 				</Router>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {toggleLogin, saveUserdata} from '../redux/actions'
+import {toggleLogin, saveUserdata} from '../redux/user/actions';
+import { pushPath } from 'redux-simple-router';
 
 const Register = React.createClass({
 	// static propTypes = {
@@ -24,8 +25,9 @@ const Register = React.createClass({
     const pw = this.state.password.trim();
     const email = this.state.email.trim();
     
-    this.props.dispatch(toggleLogin(id));
+    this.props.dispatch(toggleLogin());
     this.props.dispatch(saveUserdata(id, name, pw, email));
+    this.props.dispatch(pushPath('/profile'));
   },
 	render() {      
 		return (
