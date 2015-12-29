@@ -30,10 +30,10 @@ export const Register = React.createClass({
     const email = this.state.email.trim();
 
     function validateEmail(email) 
-		{
-		    var re = /\S+@\S+\.\S+/;
-		    return re.test(email);
-		};
+	{
+		var re = /\S+@\S+\.\S+/;
+		return re.test(email);
+	};
 
     if(name.length<5 )
     {	
@@ -87,11 +87,11 @@ export const Register = React.createClass({
 					> Register!</button>
 				</div>
 				{this.state.registerRejected?
-				<div>
+				<div style={{color: 'red'}}>
 					Sorry, but that name is taken. 
 				</div>
 					:
-				<div>
+				<div style={{color: 'red'}}>
 					{this.state.errorValidate}
 				</div>
 				}
