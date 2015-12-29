@@ -8,13 +8,16 @@ export const Register = React.createClass({
 	//   onClickHandler: React.propTypes.func.isRequired
 	// }
  getInitialState() {
-    return {id: 1, name: '', password: '', email: '', registerRejected: false, errorValidate:""};
+    return {id: 1, name: '', password: '', password2:'', email: '', registerRejected: false, errorValidate:""};
   },
   nameChange(e) {
     this.setState({name: e.target.value});
   },
   pwChange(e) {
     this.setState({password: e.target.value});
+  },
+  pw2Change(e) {
+    this.setState({password2: e.target.value});
   },
   emailChange(e) {
     this.setState({email: e.target.value});
@@ -23,6 +26,7 @@ export const Register = React.createClass({
   	const id = this.state.id
     const name = this.state.name.trim();
     const pw = this.state.password.trim();
+    const pw2 = this.state.password2.trim();
     const email = this.state.email.trim();
 
     function validateEmail(email) 
@@ -40,6 +44,12 @@ export const Register = React.createClass({
     if(pw.length<5)
     {
     	this.setState({errorValidate: "Password must be 5 or more characters."});
+    	return;
+    }
+
+    if(pw !== pw2)
+    {
+    	this.setState({errorValidate: "Passwords must match."});
     	return;
     }
 
@@ -63,6 +73,10 @@ export const Register = React.createClass({
 				<div>
 					<label>Password: </label>
 					<input type="password" onChange={this.pwChange} />
+				</div>
+				<div>
+					<label>Confirm Password: </label>
+					<input type="password" onChange={this.pw2Change} />
 				</div>
 				<div>
 					<label>Email: </label>
