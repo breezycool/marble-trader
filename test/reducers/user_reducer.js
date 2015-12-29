@@ -19,9 +19,6 @@ describe('user reducer', () => {
 	})
 
 	describe('REGISTER_NEW_USER', () => {
-		it('registers a new user with parse', () => {
-			//TODO:
-		})
 
 		it('rejects registering of existing users', () => {
 			store.dispatch(registerNewUser(1, 'existing-user', 'password', 'lachlankermode@live.com'))
