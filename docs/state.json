@@ -6,11 +6,11 @@
 		replace: Boolean
 	}
 	initial: List
-	User: {
+	user: {
 		id: Integer
 		name: String
 		password: String
 		email: String
-		isLoggedIn: Boolean
+		loggedIn: Boolean
 	}
 }
