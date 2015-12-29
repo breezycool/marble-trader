@@ -1,21 +1,23 @@
-const initialState = {loggedIn: false}
+import {REGISTER_NEW_USER, VALIDATE_LOGIN} from './actions'
 
-import {TOGGLE_LOGIN, SAVE_USERDATA, VALIDATE_LOGIN} from './actions'
+const initialState = {loggedIn: false}
 
 const user = (state=initialState, action) => {
 	switch(action.type) {
 
-	case TOGGLE_LOGIN:
-		return Object.assign({}, state, {
-			loggedIn: !state.loggedIn
-		})
-	case SAVE_USERDATA:
-		return Object.assign({}, state, {
-			id: action.id,
-			name: action.name,
-			password: action.password,
-			email: action.email
-		})
+	case REGISTER_NEW_USER:
+		if (action.user == 'existing-user') {
+			return Object.assign({}, state, {
+				registerRejected: true
+			})
+		} else {
+			return Object.assign({}, state, {
+				id: action.id,
+				user: action.user,
+				password: action.password,
+				email: action.email
+			})
+		}
 	case VALIDATE_LOGIN:
 		let loginValid = false
 		// TODO: implement Parse authentication

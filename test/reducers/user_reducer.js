@@ -1,7 +1,7 @@
 import {expect} from 'chai'
 import {createStore} from 'redux'
 import user from '../../redux/user/reducer'
-import {toggleLogin, saveUserdata, validateLogin} from '../../redux/user/actions'
+import {toggleLogin, registerNewUser, validateLogin} from '../../redux/user/actions'
 
 
 describe('user reducer', () => {
@@ -18,21 +18,31 @@ describe('user reducer', () => {
 		expect(state).to.contain({loggedIn: false})
 	})
 
-	it('handles TOGGLE_LOGIN', () => {
-		store.dispatch(toggleLogin())
-		let state = store.getState()
-		expect(state).to.contain({loggedIn: true})
-	})
-
-	it('handles SAVE_USERDATA', () => {
-		store.dispatch(saveUserdata(1, 'lachie', 'password', 'lachlankermode@live.com'))
-		let state = store.getState()
-		expect(state).to.contain({
-			id: 1,
-			name: 'lachie',
-			password: 'password',
-			email: 'lachlankermode@live.com'
+	describe('REGISTER_NEW_USER', () => {
+		it('registers a new user with parse', () => {
+			//TODO:
 		})
+
+		it('rejects registering of existing users', () => {
+			store.dispatch(registerNewUser(1, 'existing-user', 'password', 'lachlankermode@live.com'))
+			// TODO: test with Parse login
+			let state = store.getState()
+			expect(state).to.contain({
+				registerRejected: true
+			})
+		})
+
+		it('updates user credentials in state', () => {
+			store.dispatch(registerNewUser(1, 'lachie', 'password', 'lachlankermode@live.com'))
+			let state = store.getState()
+			expect(state).to.contain({
+				id: 1,
+				user: 'lachie',
+				password: 'password',
+				email: 'lachlankermode@live.com'
+			})
+		})
+
 	})
 
 	it('handles VALIDATE_LOGIN', () => {
