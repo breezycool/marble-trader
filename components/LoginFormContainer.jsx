@@ -7,7 +7,7 @@ import { pushPath } from 'redux-simple-router';
 export const LoginForm = React.createClass ({
 
  getInitialState() {
-    return {name: '', password: ''};
+    return {name: '', password: '',loginRejected: false};
   },
   handleSubmit(e) {
     const name = this.state.name.trim();
@@ -36,4 +36,10 @@ export const LoginForm = React.createClass ({
   }
 })
 
-export const LoginFormContainer = connect()(LoginForm)
+const mapStateToProps = (state) => {
+  return {
+    loginRejected: state.user.loginRejected
+  }
+}
+
+export const LoginFormContainer = connect(mapStateToProps)(LoginForm)
