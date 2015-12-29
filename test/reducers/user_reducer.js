@@ -1,7 +1,7 @@
 import {expect} from 'chai'
 import {createStore} from 'redux'
-import user from '../redux/user/reducer'
-import {toggleLogin, saveUserdata} from '../redux/user/actions'
+import user from '../../redux/user/reducer'
+import {toggleLogin, saveUserdata, validateLogin} from '../../redux/user/actions'
 
 
 describe('user reducer', () => {
@@ -13,7 +13,7 @@ describe('user reducer', () => {
 		store.dispatch({type:'INITIALIZER'})
 	})
 
-	it('has initial state loggedIn false', () => {
+	it('initially has loggedIn set to false', () => {
 		let state = store.getState()
 		expect(state).to.contain({loggedIn: false})
 	})
@@ -32,6 +32,15 @@ describe('user reducer', () => {
 			name: 'lachie',
 			password: 'password',
 			email: 'lachlankermode@live.com'
+		})
+	})
+
+	it('handles VALIDATE_LOGIN', () => {
+		store.dispatch(validateLogin('lachie', 'password'))
+		// TODO: real testing with a Parse login
+		let state = store.getState()
+		expect(state).to.contain({
+			loggedIn: true
 		})
 	})
 })
