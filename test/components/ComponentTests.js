@@ -1,6 +1,6 @@
 import {expect} from 'chai'
-import React from 'react'
-import ReactTestUtils from 'react-addons-test-utils'
+import React from 'react/addons'
+//import TestUtils from 'react-addons-test-utils'
 import Register from '../../components/RegisterContainer'
 
 describe('NavBar', () => {
@@ -10,22 +10,28 @@ describe('NavBar', () => {
 
 describe('Register', () => {
 
+  beforeEach(function() {
+
+    // let { TestUtils } = React.addons;
+
+    // this.component = TestUtils.renderIntoDocument(<Register/>);
+    // this.TestUtils = TestUtils;
+
+  });
+
+
 	it('needs a name of at least 5 characters', () => {
 
-	var register = ReactTestUtils.renderIntoDocument(
-      <Register />
-    );
+	// let renderedDOM = React.findDOMNode(this.component);
 
-    var registerNode = ReactDOM.findDOMNode(register);
+ //    expect(renderedDOM.state.errorValidate).toEqual('');
 
-    expect(checkboxNode.state.errorValidate).toEqual('');
+    //    // Simulate a click and verify that it is now On
+    // ReactTestUtils.Simulate.click(
+    //   ReactTestUtils.findRenderedDOMComponentWithTag(register, 'button')
+    // );
 
-       // Simulate a click and verify that it is now On
-    ReactTestUtils.Simulate.click(
-      ReactTestUtils.findRenderedDOMComponentWithTag(register, 'button')
-    );
-
-    expect(checkboxNode.state.errorValidate).toEqual('Name must be 5 or more characters.');
+    // expect(registerNode.state.errorValidate).toEqual('Name must be 5 or more characters.');
 
 	})
 })
