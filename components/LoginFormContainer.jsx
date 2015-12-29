@@ -14,6 +14,7 @@ export const LoginForm = React.createClass ({
     const pw = this.state.password.trim();
     
     this.props.dispatch(validateLogin(name, pw));
+    this.setState({loginRejected: this.props.loginRejected});
 
   },
   render() {      
@@ -31,6 +32,14 @@ export const LoginForm = React.createClass ({
           <button className="btn btn-warning btn-lg glyphicon glyphicon-log-in" onClick={this.handleSubmit}
           > Login!</button>
         </div>
+          {this.state.loginRejected?
+        <div style={{color: 'red'}}>
+          Sorry, but that name is taken. 
+        </div>
+          :
+        <div style={{color: 'red'}}>
+        </div>
+        }
       </div>
     )
   }
