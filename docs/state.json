@@ -4,8 +4,7 @@
 		path: String,
 		state: Object,
 		replace: Boolean
-	}
-	initial: List
+	},
 	user: {
 		id: Integer
 		name: String
