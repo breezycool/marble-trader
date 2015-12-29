@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
-import NavBar from './NavBar'
+import NavBarView from './NavBarView'
 
 
 export default class App extends React.Component {
@@ -8,7 +8,7 @@ export default class App extends React.Component {
 		return (
 			<div>
 				Welcome to MarbleTrader! <br />
-        <NavBar/>
+        <NavBarView/>
         {this.props.children}
 			</div>
 		)

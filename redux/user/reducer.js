@@ -1,8 +1,8 @@
-const initialState = []
+const initialState = {loggedIn: false}
 
 import {TOGGLE_LOGIN, SAVE_USERDATA} from './actions'
 
-const initial = (state=initialState, action) => {
+const user = (state=initialState, action) => {
 	switch(action.type) {
 
 	case TOGGLE_LOGIN:
@@ -21,4 +21,4 @@ const initial = (state=initialState, action) => {
 	}
 }
 
-export default initial
+export default user

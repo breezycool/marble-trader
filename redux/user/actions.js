@@ -1,10 +1,9 @@
 export const TOGGLE_LOGIN = 'TOGGLE_LOGIN'
 export const SAVE_USERDATA = 'SAVE_USERDATA'
 
-export const toggleLogin = (id) => {
+export const toggleLogin = () => {
 	return {
 		type: TOGGLE_LOGIN,
-		id: id
 	}
 }
 
