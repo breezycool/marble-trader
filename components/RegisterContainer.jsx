@@ -8,7 +8,7 @@ export const Register = React.createClass({
 	//   onClickHandler: React.propTypes.func.isRequired
 	// }
  getInitialState() {
-    return {id: 1, name: '', password: '', email: '', registerRejected: false};
+    return {id: 1, name: '', password: '', email: '', registerRejected: false, errorValidate:""};
   },
   nameChange(e) {
     this.setState({name: e.target.value});
@@ -31,11 +31,23 @@ export const Register = React.createClass({
 		    return re.test(email);
 		};
 
-    if(name.length<5 || pw.length<5 || !validateEmail(email))
+    if(name.length<5 )
     {	
-    	this.setState({registerRejected: true});
+    	this.setState({errorValidate: "Name must be 5 or more characters."});
     	return;
     };
+
+    if(pw.length<5)
+    {
+    	this.setState({errorValidate: "Password must be 5 or more characters."});
+    	return;
+    }
+
+    if(!validateEmail(email))
+    {
+    	this.setState({errorValidate: "Email is not valid."});
+    	return;   	
+    }
 
     this.props.dispatch(registerNewUser(id, name, pw, email));
     this.setState({registerRejected: this.props.registerRejected});
@@ -62,10 +74,11 @@ export const Register = React.createClass({
 				</div>
 				{this.state.registerRejected?
 				<div>
-					Sorry, but that name is taken. Or maybe you didn't realise that name and password must be 5 or more letters. Or maybe your email isn't valid.
+					Sorry, but that name is taken. 
 				</div>
 					:
 				<div>
+					{this.state.errorValidate}
 				</div>
 				}
 			</div>
